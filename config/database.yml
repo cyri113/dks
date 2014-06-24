@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: dokspot_development
+  pool: 5
+  password:
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: dokspot_test
+  pool: 5
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dokspot_production
+  pool: 5
+  password:
+
+cucumber:
+  <<: *test
