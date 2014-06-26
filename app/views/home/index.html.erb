@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <strong>dokspot r1.0 beta.</strong> We are currently in beta testing and reserve the right to modify any features at this time.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 col-xs-1"></div>
+  <div class="col-md-6 col-xs-10">
+  	<%= image_tag "http://placehold.it/600x300&text=dokspot%20logo", class: "img-responsive center md-mg-btm" %>
+  </div>
+  <div class="col-md-3 col-xs-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-xs-1"></div>
+      <div class="col-md-6 col-xs-10 text-center">
+      	<%= form_tag("/search", method: "get", html: {role: "form"}) do %>
+				  <div class="input-group">
+					  <%= search_field_tag(:q, nil, class: "form-control input-lg", placeholder: "Enter dokspot code", autofocus: true) %>
+					  <span class="input-group-btn">
+						  <%= submit_tag("Spot It", class: "btn btn-lg btn-primary") %>
+						</span>
+				  </div>
+				<% end %>
+				
+				<p class="xs-mg-top">Where is the <a style="cursor: pointer" data-toggle="tooltip" rel="tooltip" data-placement="bottom" data-html="true" title="<h4>dokspot code</h4><img src='http://placehold.it/150x150&text=code%20example' class='img-responsive img-thumbnail'><p>The dokspot code can usually be found on the box of you device.</p>">dokspot code</a>?</p>
+				
+      </div>
+      <div class="col-md-3 col-xs-1"></div>
+    </div>
+  </div>
+</div>

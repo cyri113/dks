@@ -1,0 +1,35 @@
+<div class="row extramargin">
+	<div class="small-10 medium-6 small-centered columns panel radius">
+
+		<h2>Sign up</h2>
+		
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  
+		  <%= devise_error_messages! %>
+		
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email, :autofocus => true %></div>
+		
+		  <div><%= f.label :password %><br />
+		  <%= f.password_field :password %></div>
+		
+		  <div><%= f.label :password_confirmation %><br />
+		  <%= f.password_field :password_confirmation %></div>
+		
+			
+			<div class="row">
+				
+				<div class="small-4 columns right">
+					<%= f.submit "Sign up", :class => "button success small right" %>
+				</div>
+				
+				<div class="small-8 columns left">
+					<%= render "devise/shared/links" %>
+				</div>
+				
+			</div>
+		
+		<% end %>
+		
+	</div>
+</div>

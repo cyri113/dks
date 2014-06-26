@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="small-12 columns">
+		<%= render partial: 'users/breadcrumbs', locals: { user: current_user } %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-11 medium-8 large-6 small-centered panel columns">
+
+		<h2><%= t "devise.invitations.new.header" %></h2>
+		
+		<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+		  <%= devise_error_messages! %>
+		
+			<% resource.class.invite_key_fields.each do |field| -%>
+			  <div><%= f.label field %>
+			  <%= f.text_field field %></div>
+			<% end -%>
+			
+			<div class="row">
+				<% if current_user.role?('admin') || current_user.role?('manager') %>
+				<div class="small-6 columns left">
+					<%= f.label :role %>
+					<%= f.collection_select :role, User::ADMIN_ROLES, :to_s, :humanize if current_user.role?('admin') %>
+					<%= f.collection_select :role, User::MANAGER_ROLES, :to_s, :humanize if current_user.role?('manager') %>
+				</div>
+				<% end %>
+				<% if current_user.role?('admin') %>
+					<!-- select companies -->
+					<div class="small-6 columns right">
+						<%= f.label :company %>
+						<%= f.collection_select :company_id, Company.all, :id, :name %>
+					</div>
+				<% else %>
+					<!-- make current_users company -->
+					<%= f.hidden_field :company_id, value: current_user.company.id %>
+				<% end %>
+			</div>
+	
+			<br />
+	
+		  <div class="row">
+		  	<div class="small-12 columns">
+			  	<%= f.submit t("devise.invitations.new.submit_button"), :class => "button success small right" %>
+			  </div>
+	  	</div>
+  
+		<% end %>
+
+	</div>
+</div>

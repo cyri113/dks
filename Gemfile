@@ -48,7 +48,7 @@ end
 gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'devise_invitable'
-gem 'foundation-rails'
+#gem 'foundation-rails'
 # gem 'cancan'
 gem 'cancancan'
 gem 'carrierwave'
@@ -77,3 +77,8 @@ group :development, :test do
 end
 
 gem 'mail_form'
+
+gem 'friendly_id'
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
