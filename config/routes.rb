@@ -4,8 +4,7 @@ Dokspot::Application.routes.draw do
   
   root 'home#index'
   
-  get "home/index"
-  get "home/about"
-  get "home/contact"
+  get 'about' => 'home#about'
+	get 'contact' => 'home#contact'
 
 end
