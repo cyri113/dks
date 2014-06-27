@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <h1><%= @product.name %></h1>
+      <p class="">Product Company</p>
+      <p class=""><%= @product.code %></p>
+    </div>
+  </div>
+</div>
+    
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <strong>Warning!</strong>This is a alert message that can be set for any changes regarding an product.</div>
+  </div>
+</div>
+    
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>English</td>
+          <td>
+          	<button type="button" class="btn btn-warning btn-xs has-tooltip" data-toggle="tooltip" data-placement="top" title="This is a custom warning message set by language.">
+						  <span class="glyphicon glyphicon-bell"></span>
+						</button>
+          </td>
+          <td>
+            <a class="btn btn-success btn-xs">Open</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">History</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">Order</a>
+          </td>
+        </tr>
+        <tr>
+          <td>German</td>
+          <td>
+          	<button type="button" class="btn btn-danger btn-xs has-tooltip" data-toggle="tooltip" data-placement="top" title="This message can also be made alert for safety reasons.">
+						  <span class="glyphicon glyphicon-bell"></span>
+						</button>
+          </td>
+          <td>
+            <a class="btn btn-success btn-xs">Open</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">History</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">Order</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
