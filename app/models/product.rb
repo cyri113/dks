@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
 	  slug.blank? || code_changed?
 	end
 	
+	has_many :instructions
+  has_many :languages, through: :instructions
+	
 end
