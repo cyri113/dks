@@ -8,5 +8,6 @@ class Product < ActiveRecord::Base
 	
 	has_many :instructions
   has_many :languages, through: :instructions
+  has_many :notifications
 	
 end

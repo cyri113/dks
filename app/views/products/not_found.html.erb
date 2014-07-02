@@ -1,0 +1,17 @@
+<div class="row md-mg-btm">
+  <div class="col-md-12 text-center">
+		<h2>Oops... Something went wrong.</h2>
+	</div>
+</div>
+
+<% if flash[:error] %>
+<div class="row md-mg-btm">
+  <div class="col-md-12">
+    <div class="text-danger text-center">
+      <p class="lead text-center"><%= flash[:error] %></p>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render "layouts/search" %>

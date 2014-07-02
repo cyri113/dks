@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+  	<% if @product.instructions.empty? %>
+  		<p class="lead text-danger text-center">No instructions have been found.<br />Please contact the Medical Device Manufacturer.</p>
+  	<% else %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+	      <% @product.instructions.published.each do |instruction| %>
+        <tr>
+          <td><%= instruction.language.name %></td>
+          <td>
+          	<% instruction.notifications.published.each do |notification| %>
+          	<% if notification.expiry > Date.today %>
+          	<button type="button" class="btn btn-<%=notification.category %> btn-xs has-tooltip" data-toggle="tooltip" data-placement="top" title="<%= notification.content %>">
+						  <span class="glyphicon glyphicon-bell"></span>
+						</button>
+						<% end %>
+						<% end %>
+          </td>
+          <td>
+            <a class="btn btn-success btn-xs">Open</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">History</a>
+          </td>
+          <td>
+            <a class="btn btn-primary btn-xs">Order</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>

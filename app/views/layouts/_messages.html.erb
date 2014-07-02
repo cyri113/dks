@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <strong>dokspot r1.0 beta.</strong> We are currently in beta testing and reserve the right to modify any features at this time.</div>
+  </div>
+</div>
+
+<% flash.each do |key, value| %>
+	<% if key == :alert %>
+		<% key = :danger %>
+	<% else %>
+		<% key = :info %>
+	<% end %>
+  <div class="alert alert-<%= key %>">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul class="list-unstyled">
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+  </div>
+<% end %>

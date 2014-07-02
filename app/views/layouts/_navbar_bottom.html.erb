@@ -25,7 +25,12 @@
 						<%= link_to "Contact Us", contact_path %>
 	        </li>
 	      </ul>
-	      <a type="button" class="btn btn-default navbar-btn navbar-right">Sign in</a>
+	      <% if user_signed_in? %>
+	      <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-danger navbar-btn navbar-right", type: "button" %>
+	      <p class="navbar-text navbar-right pad-right">Signed in as <%= current_user.email %></p>
+	      <% else %>
+	      <%= link_to "Sign in", user_session_path, class: "btn btn-success navbar-btn navbar-right", type: "button" %>
+	      <% end %>
 	    </div>
 	  </div>
 	</div>

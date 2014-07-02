@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-3 col-xs-1"></div>
+  <div class="col-md-6 col-xs-10 text-center">
+  	<%= form_tag search_path, method: "get", role: "form", id: "search_form" do %>
+		  <div class="input-group">
+			  <%= search_field_tag :q, nil, class: "form-control input-lg", placeholder: "Enter dokspot code", autofocus: true %>
+			  <span class="input-group-btn">
+				  <%= submit_tag "Spot It", class: "btn btn-lg btn-primary" %>
+				</span>
+		  </div>
+		<% end %>
+		
+		<p class="xs-mg-top">Where is the <a style="cursor: pointer" data-toggle="tooltip" rel="tooltip" data-placement="bottom" data-html="true" title="<h4>dokspot code</h4><img src='http://placehold.it/150x100&text=code%20example' class='img-responsive img-thumbnail'><p>The dokspot code can usually be found on the box of you device.</p>">dokspot code</a>?</p>
+		
+  </div>
+  <div class="col-md-3 col-xs-1"></div>
+</div>

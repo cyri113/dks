@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627133052) do
+ActiveRecord::Schema.define(version: 20140630111421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140627133052) do
     t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published"
   end
 
   add_index "instructions", ["language_id"], name: "index_instructions_on_language_id", using: :btree
@@ -44,6 +45,21 @@ ActiveRecord::Schema.define(version: 20140627133052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notifications", force: true do |t|
+    t.text     "title"
+    t.text     "content"
+    t.integer  "product_id"
+    t.integer  "instruction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "published"
+    t.string   "category"
+    t.date     "expiry"
+  end
+
+  add_index "notifications", ["instruction_id"], name: "index_notifications_on_instruction_id", using: :btree
+  add_index "notifications", ["product_id"], name: "index_notifications_on_product_id", using: :btree
 
   create_table "product_languages", force: true do |t|
     t.integer  "product_id"
@@ -58,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140627133052) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published"
   end
 
   create_table "users", force: true do |t|

@@ -7,52 +7,35 @@
     </div>
   </div>
 </div>
-    
+
 <div class="row">
   <div class="col-md-12">
-    <div class="alert alert-dismissable alert-warning">
+  	<% @product.notifications.published.each do |notification| %>
+  	<% if notification.expiry > Date.today %>
+    <div class="alert alert-dismissable alert-<%= notification.category %>">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <strong>Warning!</strong>This is a alert message that can be set for any changes regarding an product.</div>
-  </div>
-</div>
-    
-<div class="row">
-  <div class="col-md-12">
-  	<% if @product.instructions.empty? %>
-  		<p class="lead text-danger text-center">No instructions have been found.<br />Please contact the Medical Device Manufacturer.</p>
-  	<% else %>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Language</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-	      <% @product.instructions.each do |instruction| %>
-        <tr>
-          <td><%= instruction.language.name %></td>
-          <td>
-          	<button type="button" class="btn btn-warning btn-xs has-tooltip" data-toggle="tooltip" data-placement="top" title="This is a custom warning message set by language.">
-						  <span class="glyphicon glyphicon-bell"></span>
-						</button>
-          </td>
-          <td>
-            <a class="btn btn-success btn-xs">Open</a>
-          </td>
-          <td>
-            <a class="btn btn-primary btn-xs">History</a>
-          </td>
-          <td>
-            <a class="btn btn-primary btn-xs">Order</a>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <strong><%= notification.title %></strong> <%= notification.content %></div>
+    <% end %>
     <% end %>
   </div>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#instructions" role="tab" data-toggle="tab">Instructions</a></li>
+	<% if user_signed_in? %>
+	<li><a href="#notifications" role="tab" data-toggle="tab">Notifications</a></li>
+	<% end %>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+	<div class="tab-pane active" id="instructions">
+		<%= render "instructions_list" %>
+	</div>
+	<% if user_signed_in? %>
+	<div class="tab-pane" id="notifications">
+		<%= render "notifications_list" %>
+	</div>
+	<% end %>
+
 </div>
