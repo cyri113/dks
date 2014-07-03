@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
 
 	def role? role
 		#puts "query: #{role} actual: #{self.role}"
+		#sym = self.role.to_sym
     return self.role.casecmp(role.to_s) == 0
 	end
+	
+	has_one :company
+	belongs_to :company
 	
 end

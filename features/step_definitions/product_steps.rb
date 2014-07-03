@@ -19,15 +19,3 @@ end
 When(/^I search for "(.*?)"$/) do |arg1|
  	fill_in "q", with: arg1
 end
-
-When(/^I click on "(.*?)"$/) do |arg1|
-  click_button arg1
-end
-
-Then(/^I should see "(.*?)"$/) do |arg1|
-  page.should have_content(arg1)
-end
-
-Then(/^I should not see "(.*?)"$/) do |arg1|
-	page.should_not have_content(arg1)
-end

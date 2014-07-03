@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-md-12">
+	  <div class="jumbotron">
+	    <h1><%= @company.name %></h1>
+	    <h3><%= @company.sym %></h3>
+	  </div>
+	</div>
+</div>
+    
+<div class="row">
+	<div class="col-md-12">
+		<ul class="nav nav-tabs" role="tablist">
+      <li class="active">
+	      <a href="#general" role="tab" data-toggle="tab">General</a>
+      </li>
+      <li>
+	      <a href="#products" role="tab" data-toggle="tab">Products (X)</a>
+      </li>
+			<li>
+				<a href="#users" role="tab" data-toggle="tab">Users (Y)</a>
+			</li>
+		</ul>
+	</div>
+</div>
+      
+<!-- Tab panes -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="tab-content">
+			
+			<div class="tab-pane active" id="general">
+				<%= render "companies/general" %>
+			</div>
+	    <div class="tab-pane" id="products">
+	    
+	    </div>
+	    <div class="tab-pane" id="users">
+	    
+	    </div>
+	    
+	  </div>
+	</div>
+</div>

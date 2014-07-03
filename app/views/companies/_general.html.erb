@@ -1,0 +1,75 @@
+<% if current_user.role? :manager %>
+<div class="row">
+	<div class="col-md-12 text-right">
+		<a class="btn btn-warning btn-tr-mg"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+	</div>
+</div>
+<% end %>
+	      
+<div class="row">
+
+	<div class="col-md-6">
+		<h2>General Information</h2>
+		<table class="table table-hover">
+      <tbody>
+				<tr>
+					<td>
+						<strong>Name</strong>
+					</td>
+					<td class="lead"><%= @company.name %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Symbol</strong>
+          </td>
+          <td class="lead"><%= @company.sym %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Website</strong>
+          </td>
+          <td class="lead"><%= @company.website %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Key Contact</strong>
+          </td>
+          <td class="lead"><%= @company.user.email %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Order Management</strong>
+          </td>
+          <td class="lead"><%= @company.om_email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+	        
+	<div class="col-md-6">
+		<h2>Statistics</h2>
+		<table class="table table-hover">
+			<tbody>
+				<tr>
+					<td>
+						<strong>Number of Products</strong>
+					</td>
+					<td class="lead">10</td>
+				</tr>
+				<tr>
+					<td>
+						<strong>Number of Documents</strong>
+					</td>
+					<td class="lead">10</td>
+				</tr>
+				<tr>
+					<td>
+						<strong>Number of Users</strong>
+					</td>
+					<td class="lead">10</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

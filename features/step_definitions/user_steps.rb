@@ -20,6 +20,11 @@ def create_unconfirmed_user
   visit '/users/sign_out'
 end
 
+def create_confirmed_user
+	create_user
+	confirm_account
+end
+
 def confirm_account
 	@user.confirmed_at = DateTime.now
 	@user.save
@@ -29,6 +34,8 @@ def create_user
   create_visitor
   delete_user
   @user = FactoryGirl.create(:user, @visitor)
+  @user.role = :operator
+  @user.save
 end
 
 def delete_user
@@ -226,4 +233,8 @@ end
 
 Then(/^I should see email already taken invite message$/) do
   page.should have_content "Email has already been taken"
+end
+
+Then /^I should see a sign in to continue message$/ do
+  page.should have_content "You need to sign in or sign up before continuing."
 end

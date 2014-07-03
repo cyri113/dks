@@ -1,0 +1,57 @@
+<% if can? :read, Company %>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Companies</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 text-right">
+    <a class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus"></span> Create Company</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover table-striped" id="companies-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Website</th>
+          <th>Published</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% Company.all.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          <td><%= company.sym %></td>
+          <td><%= company.website %></td>
+          <td><%= company.published %></td>
+          <td>
+            <%= link_to company, class: "btn btn-primary btn-xs" do %>
+              <span class="glyphicon glyphicon-search"></span> View
+						<% end %>
+          </td>
+          <td>
+            <a class="btn btn-warning btn-xs">
+              <span class="glyphicon glyphicon-pencil"></span> Edit</a>
+          </td>
+          <td>
+            <a class="btn btn-danger btn-xs">
+              <span class="glyphicon glyphicon-trash"></span> Delete</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% else %>
+	<%= render 'layouts/not_allowed' %>
+<% end %>

@@ -33,9 +33,10 @@ Feature: User Management
 		When I sign in with a wrong password
 		Then I should see an invalid login message
 		
-	Scenario: User invites a new user with valid user data
+	Scenario: Manager invites a new user with valid user data
 		Given I exist as a user
-		And I am logged in
+		Given I am a manager
+		Given I am a authenticated user
 		When I invite a user with valid user data
 		Then I should see a successful invitation message
 	
